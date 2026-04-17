@@ -13,7 +13,8 @@ The goal is correctness and legibility, not breadth. This is not a post-training
 - `train.py` — single-device JIT-compiled training loop with Orbax checkpointing
 - `eval.py` — pairwise preference accuracy on held-out pairs, plus a greedy sampler
 - `configs/` — one laptop-CPU smoke recipe and one Colab-GPU headline recipe, plus four ablation configs
-- `notebooks/01_dpo_from_paper.ipynb` — paper Eq. 7 → code walkthrough
+- `notebooks/01_dpo_from_paper.ipynb` — paper Eq. 7 → code walkthrough (runs standalone, no training required)
+- `notebooks/02_evaluate_checkpoint.ipynb` — load a trained checkpoint and report pairwise preference accuracy (requires a prior `train.py` run)
 - `colab/train_colab.ipynb` — Colab entry point for the headline recipe
 
 ## Two configs, one code path

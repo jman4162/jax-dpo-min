@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import dataclasses
 import pickle
+import sys
 import time
 from pathlib import Path
 
@@ -117,6 +118,10 @@ def train(cfg: Config, output_dir: str):
     from datasets import load_dataset
 
     from data import build_batch, iter_batches, normalize_row
+
+    # Line-buffer stdout so progress is visible under nohup, Colab background
+    # runs, and redirected pipes — block-buffering hides step logs for minutes.
+    sys.stdout.reconfigure(line_buffering=True)  # type: ignore[union-attr]
 
     out_dir = Path(output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
