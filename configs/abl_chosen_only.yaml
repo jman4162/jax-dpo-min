@@ -1,0 +1,15 @@
+model: google/gemma-2b-it
+dataset: trl-lib/ultrafeedback_binarized
+dataset_split: "train[:8000]"
+eval_split: "train[-256:]"
+max_length: 512
+batch_size: 4
+learning_rate: 5.0e-6
+beta: 0.1
+lora_rank: 16
+lora_alpha: 32
+num_train_steps: 1500
+eval_every: 200
+checkpoint_every: 500
+seed: 0
+loss_variant: sft_chosen
